@@ -1,722 +1,708 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>AURA BOTANICA | 高端纯净奢护美学</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display for Luxury Serif & Plus Jakarta Sans for Modern Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            bg: '#FBF9F5',       /* 柔和米白/亚麻色 */
+                            card: '#F4EFEB',     /* 卡片浅香槟色 */
+                            gold: '#C5A059',     /* 香槟金 */
+                            goldDark: '#A38141', /* 深香槟金 */
+                            dark: '#1C1C1C',     /* 高级黑/墨灰 */
+                            muted: '#7A7570',    /* 高级灰棕 */
+                            accent: '#EAD7C3'    /* 柔粉暖杏 */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
-        }
-
         body {
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FBF9F5;
+            color: #1C1C1C;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Glassmorphism Effect */
+        .glass-nav {
+            background: rgba(251, 249, 245, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FBF9F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
-            </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<body class="antialiased selection:bg-luxury-gold selection:text-white">
+
+    <!-- 顶部导航栏 -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-luxury-gold/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- 移动端汉堡菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-luxury-dark focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+
+            <!-- 品牌 Logo -->
+            <a href="#" class="font-serif text-2xl md:text-3xl tracking-[0.2em] font-bold text-luxury-dark flex items-center gap-2">
+                AURA<span class="text-luxury-gold font-light">BOTANICA</span>
+            </a>
+
+            <!-- 桌面端导航链接 -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase font-medium text-luxury-dark">
+                <a href="#hero" class="hover:text-luxury-gold transition-colors pb-1 border-b-2 border-luxury-gold">首页</a>
+                <a href="#products" class="hover:text-luxury-gold transition-colors pb-1 border-b-2 border-transparent hover:border-luxury-gold">明星产品</a>
+                <a href="#philosophy" class="hover:text-luxury-gold transition-colors pb-1 border-b-2 border-transparent hover:border-luxury-gold">品牌哲学</a>
+                <a href="#diagnose" class="hover:text-luxury-gold transition-colors pb-1 border-b-2 border-transparent hover:border-luxury-gold">肌肤诊断</a>
+                <a href="#about" class="hover:text-luxury-gold transition-colors pb-1 border-b-2 border-transparent hover:border-luxury-gold">关于我们</a>
             </nav>
+
+            <!-- 右侧功能图标 -->
+            <div class="flex items-center space-x-5">
+                <button id="search-btn" class="text-luxury-dark hover:text-luxury-gold transition-colors text-lg" aria-label="搜索">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button id="cart-btn" class="relative text-luxury-dark hover:text-luxury-gold transition-colors text-lg" aria-label="购物车">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-luxury-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 移动端下拉菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-luxury-bg/95 backdrop-blur-md border-b border-luxury-gold/20 py-6 px-8 shadow-xl transition-all">
+            <div class="flex flex-col space-y-4 text-sm tracking-widest uppercase font-medium">
+                <a href="#hero" class="mobile-link text-luxury-dark hover:text-luxury-gold py-2">首页</a>
+                <a href="#products" class="mobile-link text-luxury-dark hover:text-luxury-gold py-2">明星产品</a>
+                <a href="#philosophy" class="mobile-link text-luxury-dark hover:text-luxury-gold py-2">品牌哲学</a>
+                <a href="#diagnose" class="mobile-link text-luxury-dark hover:text-luxury-gold py-2">肌肤诊断</a>
+                <a href="#about" class="mobile-link text-luxury-dark hover:text-luxury-gold py-2">关于我们</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
-        </div>
-    </section>
+    <!-- 英雄区 (Hero Section) -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-luxury-bg via-[#F4EFEB] to-luxury-accent/30">
+        <!-- 装饰性圆形光晕 -->
+        <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-luxury-gold/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 -left-20 w-80 h-80 rounded-full bg-luxury-accent/30 blur-3xl pointer-events-none"></div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- 文字区域 -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <span class="inline-block uppercase tracking-[0.3em] text-xs font-semibold text-luxury-gold bg-luxury-gold/10 px-4 py-1.5 rounded-full border border-luxury-gold/20">
+                    Pure Luxury & Clean Beauty
+                </span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-luxury-dark font-normal leading-tight">
+                    纯净赋活，<br/><span class="italic text-luxury-goldDark font-serif">唤醒肌肤</span>原生之美
+                </h1>
+                <p class="text-luxury-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    融合阿尔卑斯珍稀高山植萃与现代尖端生物科技，为追求极致纯净与奢宠质感的现代女性，带来颠覆性的逆龄修护体验。
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-luxury-dark text-white rounded-full font-medium tracking-widest text-sm hover:bg-luxury-gold transition-all duration-300 shadow-lg shadow-luxury-dark/10 text-center">
+                        立即探索
+                    </a>
+                    <a href="#diagnose" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-luxury-dark/30 text-luxury-dark rounded-full font-medium tracking-widest text-sm hover:border-luxury-gold hover:text-luxury-gold transition-all duration-300 text-center">
+                        定制肌肤方案
+                    </a>
                 </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
+                <!-- 信任背书小标签 -->
+                <div class="pt-8 grid grid-cols-3 gap-4 border-t border-luxury-gold/20 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <p class="font-serif text-xl font-bold text-luxury-dark">100%</p>
+                        <p class="text-xs text-luxury-muted tracking-wide mt-1">天然植萃精粹</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-xl font-bold text-luxury-dark">0%</p>
+                        <p class="text-xs text-luxury-muted tracking-wide mt-1">有害化学添加</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-xl font-bold text-luxury-dark">24H</p>
+                        <p class="text-xs text-luxury-muted tracking-wide mt-1">持久水润锁水</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
-            </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
+            <!-- 图片展示区 -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Luxury Skincare Essence" 
+                         class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                         onerror="this.src='https://placehold.co/600x750/F4EFEB/1C1C1C?text=Aura+Botanica+Serum'">
+                    <!-- 浮动高端标签卡片 -->
+                    <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-2xl flex items-center justify-between shadow-lg">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-luxury-gold font-semibold">Star Product</span>
+                            <h4 class="font-serif text-luxury-dark font-medium text-sm">臻白赋活黄金精华露</h4>
+                        </div>
+                        <span class="font-serif text-luxury-dark font-semibold">¥880 / 50ml</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
+    <!-- 品牌理念与核心成分 (Brand Philosophy & Key Ingredients) -->
+    <section id="philosophy" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="uppercase tracking-[0.3em] text-xs font-semibold text-luxury-gold">Clean Beauty Philosophy</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-luxury-dark">纯净自然与科学美学的完美融合</h2>
+                <p class="text-luxury-muted font-light text-sm md:text-base">我们坚信，真正的高级护肤源于对大自然的敬畏与严谨的科学配方，剔除一切肌肤负担。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 卖点卡片 1 -->
+                <div class="bg-luxury-bg p-8 rounded-3xl border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold text-2xl mb-6 group-hover:bg-luxury-gold group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-luxury-dark font-medium mb-3">高山雪绒花精萃</h3>
+                    <p class="text-luxury-muted text-sm font-light leading-relaxed">
+                        采撷自瑞士海拔3000米以上的有机雪绒花，蕴含强大修护能量，抵抗自由基侵袭，紧致抗衰。
+                    </p>
+                </div>
+
+                <!-- 卖点卡片 2 -->
+                <div class="bg-luxury-bg p-8 rounded-3xl border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold text-2xl mb-6 group-hover:bg-luxury-gold group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-luxury-dark font-medium mb-3">微脂囊包裹科技</h3>
+                    <p class="text-luxury-muted text-sm font-light leading-relaxed">
+                        采用尖端脂质体传送技术，将活性营养成分直达肌底，释放深层持久滋养。
+                    </p>
+                </div>
+
+                <!-- 卖点卡片 3 -->
+                <div class="bg-luxury-bg p-8 rounded-3xl border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold text-2xl mb-6 group-hover:bg-luxury-gold group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-luxury-dark font-medium mb-3">无添加纯净配方</h3>
+                    <p class="text-luxury-muted text-sm font-light leading-relaxed">
+                        严格遵循欧盟纯净美学标准，不含矿物油、人工香精及对羟基苯甲酸酯，敏感肌亦可安心奢宠。
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <!-- 明星产品展示 (Featured Products) -->
+    <section id="products" class="py-24 bg-luxury-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div class="space-y-4">
+                    <span class="uppercase tracking-[0.3em] text-xs font-semibold text-luxury-gold">Signature Collection</span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-luxury-dark">奢宠明星系列</h2>
+                </div>
+                <!-- 分类筛选标签 -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button class="px-5 py-2 rounded-full text-xs font-medium tracking-widest uppercase bg-luxury-dark text-white filter-btn transition-all" data-filter="all">全部产品</button>
+                    <button class="px-5 py-2 rounded-full text-xs font-medium tracking-widest uppercase bg-white text-luxury-dark hover:bg-luxury-gold hover:text-white filter-btn transition-all" data-filter="essence">精华 / 润露</button>
+                    <button class="px-5 py-2 rounded-full text-xs font-medium tracking-widest uppercase bg-white text-luxury-dark hover:bg-luxury-gold hover:text-white filter-btn transition-all" data-filter="cream">面霜 / 奢护</button>
+                    <button class="px-5 py-2 rounded-full text-xs font-medium tracking-widest uppercase bg-white text-luxury-dark hover:bg-luxury-gold hover:text-white filter-btn transition-all" data-filter="eye">眼周专项</button>
+                </div>
+            </div>
+
+            <!-- 产品网格 -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 产品 1 -->
+                <div class="product-item bg-white rounded-3xl overflow-hidden border border-luxury-gold/10 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col" data-category="essence">
+                    <div class="relative aspect-square overflow-hidden bg-luxury-card">
+                        <img src="https://images.unsplash.com/photo-1608248597359-9f123d40f0b8?q=80&w=800&auto=format&fit=crop" 
+                             alt="臻白赋活黄金精华露" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/500x500/F4EFEB/1C1C1C?text=Essence'">
+                        <span class="absolute top-4 left-4 bg-luxury-gold text-white text-[10px] tracking-widest uppercase px-3 py-1 rounded-full">明星热卖</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-luxury-muted mb-1">Repair Essence</p>
+                            <h3 class="font-serif text-lg text-luxury-dark font-medium">臻白赋活黄金精华露</h3>
+                            <p class="text-luxury-muted text-xs font-light mt-1">深层提亮，击退暗沉，重现水光肌。</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-luxury-gold/10">
+                            <span class="font-serif font-bold text-luxury-dark text-lg">¥880 <span class="text-xs text-luxury-muted font-normal">/ 50ml</span></span>
+                            <button onclick="addToCart('臻白赋活黄金精华露', 880)" class="w-10 h-10 rounded-full bg-luxury-dark text-white flex items-center justify-center hover:bg-luxury-gold transition-colors" aria-label="加入购物车">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+
+                <!-- 产品 2 -->
+                <div class="product-item bg-white rounded-3xl overflow-hidden border border-luxury-gold/10 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col" data-category="cream">
+                    <div class="relative aspect-square overflow-hidden bg-luxury-card">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop" 
+                             alt="雪绒花高山紧致面霜" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/500x500/F4EFEB/1C1C1C?text=Cream'">
+                        <span class="absolute top-4 left-4 bg-luxury-dark text-white text-[10px] tracking-widest uppercase px-3 py-1 rounded-full">抗衰首选</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-luxury-muted mb-1">Firming Cream</p>
+                            <h3 class="font-serif text-lg text-luxury-dark font-medium">雪绒花高山紧致面霜</h3>
+                            <p class="text-luxury-muted text-xs font-light mt-1">幼滑质地，弹力紧致，抚平岁月痕迹。</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-luxury-gold/10">
+                            <span class="font-serif font-bold text-luxury-dark text-lg">¥1,180 <span class="text-xs text-luxury-muted font-normal">/ 60ml</span></span>
+                            <button onclick="addToCart('雪绒花高山紧致面霜', 1180)" class="w-10 h-10 rounded-full bg-luxury-dark text-white flex items-center justify-center hover:bg-luxury-gold transition-colors" aria-label="加入购物车">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
+
+                <!-- 产品 3 -->
+                <div class="product-item bg-white rounded-3xl overflow-hidden border border-luxury-gold/10 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col" data-category="eye">
+                    <div class="relative aspect-square overflow-hidden bg-luxury-card">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop" 
+                             alt="黑钻修护眼周精华霜" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/500x500/F4EFEB/1C1C1C?text=Eye+Cream'">
+                        <span class="absolute top-4 left-4 bg-luxury-gold text-white text-[10px] tracking-widest uppercase px-3 py-1 rounded-full">热销断货王</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-luxury-muted mb-1">Eye Contour</p>
+                            <h3 class="font-serif text-lg text-luxury-dark font-medium">黑钻修护眼周精华霜</h3>
+                            <p class="text-luxury-muted text-xs font-light mt-1">淡化眼纹，紧致眼周，焕亮年轻明眸。</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-luxury-gold/10">
+                            <span class="font-serif font-bold text-luxury-dark text-lg">¥760 <span class="text-xs text-luxury-muted font-normal">/ 15ml</span></span>
+                            <button onclick="addToCart('黑钻修护眼周精华霜', 760)" class="w-10 h-10 rounded-full bg-luxury-dark text-white flex items-center justify-center hover:bg-luxury-gold transition-colors" aria-label="加入购物车">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
+
+                <!-- 产品 4 -->
+                <div class="product-item bg-white rounded-3xl overflow-hidden border border-luxury-gold/10 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col" data-category="essence">
+                    <div class="relative aspect-square overflow-hidden bg-luxury-card">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop" 
+                             alt="纯净植萃柔肤洁面乳" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/500x500/F4EFEB/1C1C1C?text=Cleanser'">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-luxury-muted mb-1">Gentle Cleanser</p>
+                            <h3 class="font-serif text-lg text-luxury-dark font-medium">纯净植萃柔肤洁面乳</h3>
+                            <p class="text-luxury-muted text-xs font-light mt-1">氨基酸温和清洁，洗后水润不紧绷。</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-luxury-gold/10">
+                            <span class="font-serif font-bold text-luxury-dark text-lg">¥320 <span class="text-xs text-luxury-muted font-normal">/ 150ml</span></span>
+                            <button onclick="addToCart('纯净植萃柔肤洁面乳', 320)" class="w-10 h-10 rounded-full bg-luxury-dark text-white flex items-center justify-center hover:bg-luxury-gold transition-colors" aria-label="加入购物车">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+        </div>
+    </section>
+
+    <!-- 奢宠体验/肌肤测试 (Interactive Skin Diagnostic Section) -->
+    <section id="diagnose" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="bg-gradient-to-br from-luxury-bg via-[#F4EFEB] to-luxury-accent/40 border border-luxury-gold/20 rounded-3xl p-8 md:p-14 shadow-2xl">
+                <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+                    <span class="uppercase tracking-[0.3em] text-xs font-semibold text-luxury-gold">Interactive Experience</span>
+                    <h2 class="font-serif text-3xl text-luxury-dark">获取您的专属定制护肤方案</h2>
+                    <p class="text-luxury-muted text-sm font-light">只需1分钟，了解您的肌肤真实诉求，专业美学顾问为您定制日常保养配方。</p>
+                </div>
+
+                <!-- 简易表单/互动区 -->
+                <form id="quiz-form" class="space-y-6 max-w-lg mx-auto">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-luxury-dark font-semibold mb-2">1. 您的主要肌肤困扰是？</label>
+                        <select id="skin-concern" class="w-full bg-white/80 border border-luxury-gold/30 rounded-2xl px-4 py-3 text-sm text-luxury-dark focus:outline-none focus:border-luxury-gold">
+                            <option value="aging">松弛细纹与初老抗衰</option>
+                            <option value="dry">缺水干燥与外油内干</option>
+                            <option value="dull">肤色暗沉与色斑困扰</option>
+                            <option value="sensitive">敏感脆弱与屏障受损</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-luxury-dark font-semibold mb-2">2. 您的肌肤类型？</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <label class="flex items-center justify-center p-3 bg-white/80 border border-luxury-gold/20 rounded-xl text-xs cursor-pointer hover:border-luxury-gold transition-all">
+                                <input type="radio" name="skin-type" value="dry" class="mr-2 accent-luxury-gold" checked> 干性肌肤
+                            </label>
+                            <label class="flex items-center justify-center p-3 bg-white/80 border border-luxury-gold/20 rounded-xl text-xs cursor-pointer hover:border-luxury-gold transition-all">
+                                <input type="radio" name="skin-type" value="oily" class="mr-2 accent-luxury-gold"> 油性肌肤
+                            </label>
+                            <label class="flex items-center justify-center p-3 bg-white/80 border border-luxury-gold/20 rounded-xl text-xs cursor-pointer hover:border-luxury-gold transition-all">
+                                <input type="radio" name="skin-type" value="combination" class="mr-2 accent-luxury-gold"> 混合肌肤
+                            </label>
+                            <label class="flex items-center justify-center p-3 bg-white/80 border border-luxury-gold/20 rounded-xl text-xs cursor-pointer hover:border-luxury-gold transition-all">
+                                <input type="radio" name="skin-type" value="sensitive" class="mr-2 accent-luxury-gold"> 敏感肌肤
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-luxury-dark font-semibold mb-2">3. 接收测试结果的电子邮箱</label>
+                        <input type="email" id="quiz-email" placeholder="name@example.com" required
+                               class="w-full bg-white/80 border border-luxury-gold/30 rounded-2xl px-4 py-3 text-sm text-luxury-dark focus:outline-none focus:border-luxury-gold">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-luxury-dark text-white rounded-2xl font-medium tracking-widest text-sm hover:bg-luxury-gold transition-all shadow-lg">
+                        生成定制护肤方案
+                    </button>
+                </form>
+
+                <!-- 测试结果展示区域（默认隐藏） -->
+                <div id="quiz-result" class="hidden mt-8 p-6 bg-white rounded-2xl border border-luxury-gold/30 text-center space-y-3">
+                    <i class="fa-solid fa-circle-check text-luxury-gold text-3xl"></i>
+                    <h3 class="font-serif text-xl text-luxury-dark font-medium">定制方案已生成！</h3>
+                    <p class="text-luxury-muted text-xs font-light leading-relaxed">
+                        我们已将专属于您的 <span id="result-text" class="font-semibold text-luxury-dark">阿尔卑斯修护奢宠套装</span> 及详细使用指南发送至您的邮箱，感谢您的体验。
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 用户评价/口碑 (Testimonials) -->
+    <section class="py-24 bg-luxury-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="uppercase tracking-[0.3em] text-xs font-semibold text-luxury-gold">Global Testimonials</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-luxury-dark">名媛达人与真实用户的赞誉</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 评价 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-luxury-gold/10 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-luxury-gold text-sm space-x-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-luxury-dark font-light text-sm italic leading-relaxed">
+                            “使用黄金精华露两周后，皮肤的通透感和紧致度发生了质的变化。那种淡淡的高级植萃清香让人每一次护肤都成为一种极致的享受。”
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-luxury-gold/10">
+                        <div class="w-12 h-12 rounded-full bg-luxury-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="User" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/F4EFEB/1C1C1C?text=User'">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-luxury-dark font-medium text-sm">Elena Vance</h4>
+                            <p class="text-xs text-luxury-muted">知名时尚主编</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 评价 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-luxury-gold/10 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-luxury-gold text-sm space-x-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-luxury-dark font-light text-sm italic leading-relaxed">
+                            “作为敏感肌，寻找一款既有强抗衰效果又温和的产品非常难。雪绒花高山紧致面霜完全颠覆了我的认知，修护效果极其惊艳。”
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-luxury-gold/10">
+                        <div class="w-12 h-12 rounded-full bg-luxury-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" alt="User" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/F4EFEB/1C1C1C?text=User'">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-luxury-dark font-medium text-sm">Sophia Chen</h4>
+                            <p class="text-xs text-luxury-muted">资深美妆博主</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 评价 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-luxury-gold/10 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-luxury-gold text-sm space-x-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-luxury-dark font-light text-sm italic leading-relaxed">
+                            “包装精致，质感高级。黑钻眼霜对于熬夜带来的细纹和黑眼圈改善非常明显，绝对会无限回购的宝藏奢护品牌。”
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-luxury-gold/10">
+                        <div class="w-12 h-12 rounded-full bg-luxury-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=200&auto=format&fit=crop" alt="User" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/F4EFEB/1C1C1C?text=User'">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-luxury-dark font-medium text-sm">Victoria K.</h4>
+                            <p class="text-xs text-luxury-muted">品牌创始人</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精致 Footer 页脚 -->
+    <footer id="about" class="bg-luxury-dark text-luxury-bg pt-20 pb-12 border-t border-luxury-gold/20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+            <!-- 品牌介绍 -->
+            <div class="md:col-span-4 space-y-6">
+                <a href="#" class="font-serif text-2xl tracking-[0.2em] font-bold text-white flex items-center gap-2">
+                    AURA<span class="text-luxury-gold font-light">BOTANICA</span>
+                </a>
+                <p class="text-luxury-muted text-sm font-light leading-relaxed">
+                    Aura Botanica 致力于将纯净美学（Clean Beauty）推向极致，甄选全球珍稀天然植萃，结合现代尖端生物科技，为追求卓越品质的现代女性缔造永恒的优雅与原生肌肤之美。
+                </p>
+                <div class="flex space-x-4 text-luxury-gold text-lg">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-luxury-gold/20 flex items-center justify-center hover:bg-luxury-gold hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-luxury-gold/20 flex items-center justify-center hover:bg-luxury-gold hover:text-white transition-all"><i class="fa-brands fa-weixin"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-luxury-gold/20 flex items-center justify-center hover:bg-luxury-gold hover:text-white transition-all"><i class="fa-brands fa-xiaohongshu"></i></a>
+                </div>
+            </div>
+
+            <!-- 快速链接 -->
+            <div class="md:col-span-2 space-y-4">
+                <h4 class="font-serif text-white tracking-widest text-sm uppercase font-semibold">探索系列</h4>
+                <ul class="space-y-2 text-sm text-luxury-muted font-light">
+                    <li><a href="#products" class="hover:text-luxury-gold transition-colors">明星精华</a></li>
+                    <li><a href="#products" class="hover:text-luxury-gold transition-colors">高山面霜</a></li>
+                    <li><a href="#products" class="hover:text-luxury-gold transition-colors">眼周奢护</a></li>
+                    <li><a href="#products" class="hover:text-luxury-gold transition-colors">洁面清颜</a></li>
+                </ul>
+            </div>
+
+            <!-- 客户服务 -->
+            <div class="md:col-span-2 space-y-4">
+                <h4 class="font-serif text-white tracking-widest text-sm uppercase font-semibold">客户服务</h4>
+                <ul class="space-y-2 text-sm text-luxury-muted font-light">
+                    <li><a href="#" class="hover:text-luxury-gold transition-colors">专属美学顾问</a></li>
+                    <li><a href="#" class="hover:text-luxury-gold transition-colors">订单物流查询</a></li>
+                    <li><a href="#" class="hover:text-luxury-gold transition-colors">常见问题解答</a></li>
+                    <li><a href="#" class="hover:text-luxury-gold transition-colors">隐私与条款</a></li>
+                </ul>
+            </div>
+
+            <!-- 电子报订阅 (Newsletter) -->
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="font-serif text-white tracking-widest text-sm uppercase font-semibold">订阅奢护资讯</h4>
+                <p class="text-luxury-muted text-sm font-light">订阅我们的电子报，抢先获取新品发布、会员专属礼遇与美肤指南。</p>
+                <form id="newsletter-form" class="flex items-center space-x-2">
+                    <input type="email" id="newsletter-email" placeholder="请输入您的电子邮箱" required
+                           class="w-full bg-white/5 border border-luxury-gold/30 rounded-xl px-4 py-3 text-sm text-white placeholder-luxury-muted focus:outline-none focus:border-luxury-gold">
+                    <button type="submit" class="px-6 py-3 bg-luxury-gold text-white rounded-xl text-sm font-medium hover:bg-luxury-goldDark transition-all whitespace-nowrap">
+                        订阅
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-luxury-muted">
+            <p>&copy; 2026 AURA BOTANICA. All Rights Reserved.</p>
+            <p class="mt-4 sm:mt-0">苏ICP备2026088888号-1</p>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+    <!-- 全局提示消息框 (Toast Message Box) -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-luxury-dark text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 border border-luxury-gold/30">
+        <i class="fa-solid fa-circle-check text-luxury-gold text-lg"></i>
+        <span id="toast-msg" class="text-sm font-light tracking-wide">操作成功</span>
+    </div>
 
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            });
+    <!-- 搜索模态框 (Search Modal) -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-luxury-dark/80 backdrop-blur-md hidden flex items-center justify-center p-6">
+        <div class="bg-luxury-bg w-full max-w-2xl rounded-3xl p-8 relative shadow-2xl border border-luxury-gold/30">
+            <button id="close-search" class="absolute top-6 right-6 text-luxury-dark hover:text-luxury-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-serif text-2xl text-luxury-dark mb-6">探索 Aura Botanica</h3>
+            <div class="relative">
+                <input type="text" id="search-input" placeholder="请输入产品名称、成分或功效..." 
+                       class="w-full bg-white border border-luxury-gold/30 rounded-2xl px-5 py-4 pl-12 text-sm text-luxury-dark focus:outline-none focus:border-luxury-gold">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-4.5 text-luxury-muted text-lg"></i>
+            </div>
+            <div class="mt-6 flex flex-wrap gap-2">
+                <span class="text-xs text-luxury-muted uppercase tracking-wider self-center mr-2">热门搜索:</span>
+                <button onclick="quickSearch('精华露')" class="px-3 py-1 bg-white border border-luxury-gold/20 rounded-full text-xs text-luxury-dark hover:border-luxury-gold">精华露</button>
+                <button onclick="quickSearch('面霜')" class="px-3 py-1 bg-white border border-luxury-gold/20 rounded-full text-xs text-luxury-dark hover:border-luxury-gold">面霜</button>
+                <button onclick="quickSearch('眼霜')" class="px-3 py-1 bg-white border border-luxury-gold/20 rounded-full text-xs text-luxury-dark hover:border-luxury-gold">眼霜</button>
+                <button onclick="quickSearch('雪绒花')" class="px-3 py-1 bg-white border border-luxury-gold/20 rounded-full text-xs text-luxury-dark hover:border-luxury-gold">雪绒花</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 互动与动效 JavaScript -->
+    <script>
+        // 购物车数量状态
+        let cartCount = 0;
+
+        // 显示精美的提示框 (Toast)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3000);
         }
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        // 加入购物车交互
+        function addToCart(productName, price) {
+            cartCount++;
+            document.getElementById('cart-badge').textContent = cartCount;
+            showToast(`已成功将「${productName}」加入购物车 (¥${price})`);
+        }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
-                }
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
+        });
+
+        // 导航栏滚动阴影效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // 产品分类筛选逻辑
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.product-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 切换按钮样式
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-luxury-dark', 'text-white');
+                    b.classList.add('bg-white', 'text-luxury-dark');
+                });
+                btn.classList.remove('bg-white', 'text-luxury-dark');
+                btn.classList.add('bg-luxury-dark', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+
+                productItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 肌肤诊断表单交互
+        const quizForm = document.getElementById('quiz-form');
+        const quizResult = document.getElementById('quiz-result');
+        const resultText = document.getElementById('result-text');
+
+        quizForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const concern = document.getElementById('skin-concern').value;
+            let setName = '阿尔卑斯修护奢宠套装';
+            if (concern === 'aging') setName = '雪绒花高山抗衰紧致奢护套装';
+            else if (concern === 'dry') setName = '高山植萃深层水润保湿套装';
+            else if (concern === 'dull') setName = '臻白焕亮黄金修护套装';
+            else if (concern === 'sensitive') setName = '舒缓修护敏感肌安心套装';
+
+            resultText.textContent = setName;
+            quizResult.classList.remove('hidden');
+            showToast('您的专属护肤方案已成功生成！');
+        });
+
+        // 搜索模态框交互
+        const searchBtn = document.getElementById('search-btn');
+        const searchModal = document.getElementById('search-modal');
+        const closeSearch = document.getElementById('close-search');
+        const searchInput = document.getElementById('search-input');
+
+        searchBtn.addEventListener('click', () => {
+            searchModal.classList.remove('hidden');
+            searchInput.focus();
+        });
+
+        closeSearch.addEventListener('click', () => {
+            searchModal.classList.add('hidden');
+        });
+
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) {
+                searchModal.classList.add('hidden');
+            }
+        });
+
+        function quickSearch(keyword) {
+            searchInput.value = keyword;
+            showToast(`正在为您搜索: ${keyword}`);
+            setTimeout(() => {
+                searchModal.classList.add('hidden');
+                document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+            }, 800);
+        }
+
+        // 电子报订阅表单
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            if (email) {
+                showToast('感谢订阅！最新奢护资讯已发送至您的邮箱。');
+                newsletterForm.reset();
+            }
         });
     </script>
 </body>
-
 </html>
